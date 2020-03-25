@@ -23,6 +23,7 @@ class Solution:
             num = temp
         return num
 
+
 # 2 o(1), Mathematical
 class Solution:
     def addDigits(self, num: int) -> int:
