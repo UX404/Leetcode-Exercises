@@ -36,16 +36,9 @@ class Solution:
         fast, slow = 0, 0
         r = 0
         while fast < len(houses):
-            if houses[fast] == heaters[slow]:
+            while slow+1 < len(heaters)-1 and heaters[slow+1] < houses[fast]:
                 slow += 1
-                fast += 1
-            else:
-                d1 = houses[fast] - heaters[slow-1]
-                d2 = heaters[slow] - houses[fast]
-                r0 = min(d1, d2)
-                if d1 < 0: r0 = d2
-                elif d2 < 0: r0 = d1
-                if r0 > r: r = r0
-                print(heaters[slow], heaters[slow-1], houses[fast], r0)
-                fast += 1
+            r0 = min(abs(houses[fast] - heaters[slow]), abs(houses[fast] - heaters[slow+1]))
+            r = max(r, r0)
+            fast += 1
         return r
