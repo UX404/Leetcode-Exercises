@@ -39,6 +39,18 @@ class Node:
 """
 
 
+# 1 Recursion
+class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        if not root: return []
+        result = []
+        for i in root.children:
+            result += self.postorder(i)
+        result.append(root.val)
+        return result
+
+
+# 2 Iteration
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:
         if not root: return []
