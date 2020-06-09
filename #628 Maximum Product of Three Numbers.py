@@ -65,3 +65,5 @@ class Solution:
         nums2.remove(max2)
         max3 = max(nums2)
         return max(max1*max2*max3, min1*min2*max1)
+
+# This sucks.
