@@ -40,3 +40,14 @@ class Solution:
             first = "".join(i for i in first.split('.'))
             emails[n] = first + '@' + sub[1]
         return len(set(emails))
+
+
+# Improved
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        for n in range(len(emails)):
+            sub = emails[n].split('@')
+            first = sub[0].split('+')[0]
+            first = first.replace('.', '')
+            emails[n] = first + '@' + sub[1]
+        return len(set(emails))
