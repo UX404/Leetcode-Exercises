@@ -45,10 +45,10 @@ All elements of candidates are distinct.
 class Solution {
 public:
     void search(vector<vector<int>> &ans, vector<int> &combination, int p, vector<int> &candidates, int target){
-        if (target < 0 || p >= candidates.size())
-            ;
-        else if (target == 0)
+    	if (target == 0)
             ans.push_back(combination);
+        else if (target < 0 || p >= candidates.size())
+            ;
         else{
             search(ans, combination, p+1, candidates, target);
             combination.push_back(candidates[p]);
